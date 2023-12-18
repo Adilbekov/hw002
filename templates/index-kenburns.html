@@ -476,9 +476,6 @@
                                 <h4>{{facts.descriptions}}</h4>
                             </div>
                             {% endfor %}
-
-
-
                             <!-- Fact Badge Item Ends -->
                         </div>
                     </div>
@@ -512,7 +509,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="team-member">
                             <!-- Team Member Picture Starts -->
-                            <a title="Maryana Mori // Manager" href="{% static 'assets/img/team/member1.jpg' %}" data-gal="magnific-pop-up[team]" class="team-member-img-wrap"><img src="{{comands.image.url}}" alt="team member"></a>
+                            <a title="Maryana Mori // Manager" href="{{comands.image.url}}" data-gal="magnific-pop-up[team]" class="team-member-img-wrap"><img src="{{comands.image.url}}" alt="team member"></a>
                             <!-- Team Member Picture Ends -->
                             <!-- Team Member Details Starts -->
                             <div class="team-member-caption social-icons">
@@ -603,15 +600,15 @@
                     <div class="col-sm-12 col-md-4 col-xs-12">
                         <div class="latest-post">
                             <!-- Featured Image Starts -->
-                            <a class="img-thumb" href="blog-post.html"><img class="img-fluid" src="{{blog_post.image.url}}" alt="img"></a>
+                            <a class="img-thumb" href="{% url 'blog_postt' blog_post.id%} "><img class="img-fluid" src="{{blog_post.image.url}}" alt="img"></a>
                             <!-- Featured Image Ends -->
                             <!-- Article Content Starts -->
                             <div class="post-body">
                                 <h4 class="post-title">
-                                    <a href="blog-post.html">{{blog_post.name}}</a>
+                                    <a href="{% url 'blog_postt' blog_post.id%}">{{blog_post.name}}</a>
                                 </h4>
                                 <div class="post-text">
-                                    <p>{{blog_post.description}}</p>
+                                    <p>{{blog_post.description|truncatechars:50}}</p>
                                 </div>
                                 
                                 <!-- Post Date Ends -->
@@ -620,7 +617,7 @@
                         </div>
                         <!-- Article Ends -->
                         <div class="mx-auto">
-                            <a class="custom-button link-blog" href="blog.html">See all Posts</a>
+                            <a class="custom-button link-blog" href="{% url 'blog'  %}">See all Posts</a>
                         </div>
                     </div>
                     {% endfor %}
@@ -704,7 +701,7 @@
                     <!-- Right Info Map Box Ends -->
                 </div>
             </div>
-            <!-- Info Map Boxes Ends -->
+            <!-- Info Map Boxes Ends -->    
         </section>
         <!-- Contact Section Ends -->
         <!-- Contact Form Section Starts -->

@@ -20,4 +20,13 @@ def index_1(requests):
     logo=models.HomeLogo.objects.latest('id')
     return render(requests, 'index-kenburns.html', locals())
 
-# def index(requesrt):
+
+def blog(request):
+    blog_1 =models.BlogPost.objects.all()
+    return render(request, 'blog.html', locals())
+
+
+def blog_post(request, id):
+    blog_all = models.BlogPost.objects.all()
+    blog=models.BlogPost.objects.get(id=id)
+    return render(request, 'blog-post.html', locals())

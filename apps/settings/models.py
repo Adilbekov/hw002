@@ -268,7 +268,10 @@ class BlogPost(models.Model):
         upload_to='blogpost_image',
         verbose_name='Фотография'
     )
-
+    created_at = models.DateTimeField(
+        auto_now_add = True,
+        blank = True,null = True
+    )
     def __str__(self):
         return self.name
     
@@ -392,3 +395,13 @@ class HomeLogo(models.Model):
     class Meta:
         verbose_name='Логотипы'
         verbose_name_plural='Логотип'
+
+
+
+
+
+# авто зополнение времени
+        # created_add=models.DateTimeField(
+        #     auto_now_add=True,
+        #     blank=True, null=True
+        # )
